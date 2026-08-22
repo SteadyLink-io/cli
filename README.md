@@ -12,13 +12,13 @@ Create a scoped API key in **Dashboard → Developers**. Use `assets:read` for i
 ## Install
 
 ```sh
-npm install --global @steadylink/cli
+npm install --global github:SteadyLink-io/cli
 ```
 
 You can also run it without installing:
 
 ```sh
-npx @steadylink/cli --help
+npx github:SteadyLink-io/cli --help
 ```
 
 ## Authenticate
