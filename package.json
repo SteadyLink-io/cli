@@ -1,0 +1,40 @@
+{
+  "name": "@steadylink/cli",
+  "version": "0.1.0",
+  "description": "Official command line interface for SteadyLink",
+  "type": "module",
+  "bin": {
+    "steadylink": "./bin/steadylink.mjs"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/steadylink.mjs && node --check src/cli.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "steadylink",
+    "cli",
+    "cdn",
+    "assets",
+    "media"
+  ],
+  "license": "MIT",
+  "author": "SteadyLink",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteadyLink-io/cli.git"
+  },
+  "homepage": "https://steadylink.io",
+  "bugs": {
+    "url": "https://github.com/SteadyLink-io/cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
