@@ -1,40 +1,31 @@
 {
   "name": "@steadylink/cli",
-  "version": "0.1.0",
-  "description": "Official command line interface for SteadyLink",
+  "version": "0.2.0",
+  "description": "Official command line interface for SteadyLink: upload files, replace them without breaking links, and manage signed links",
   "type": "module",
-  "bin": {
-    "steadylink": "./bin/steadylink.mjs"
+  "bin": { "steadylink": "./bin/steadylink.mjs" },
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "exports": {
+    ".": { "types": "./dist/cli.d.ts", "import": "./dist/cli.js" },
+    "./package.json": "./package.json"
   },
-  "files": [
-    "bin",
-    "src"
-  ],
+  "files": ["bin", "dist", "README.md", "LICENSE"],
   "scripts": {
-    "test": "node --test",
-    "check": "node --check bin/steadylink.mjs && node --check src/cli.mjs"
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepack": "npm run clean && npm run build"
   },
-  "engines": {
-    "node": ">=20"
-  },
-  "keywords": [
-    "steadylink",
-    "cli",
-    "cdn",
-    "assets",
-    "media"
-  ],
+  "dependencies": { "@steadylink/sdk": "^0.2.0" },
+  "devDependencies": { "@types/node": "^20.11.30", "typescript": "^5.4.5" },
+  "engines": { "node": ">=18" },
+  "keywords": ["steadylink", "cli", "upload", "cdn", "assets", "media"],
   "license": "MIT",
   "author": "SteadyLink",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SteadyLink-io/cli.git"
-  },
-  "homepage": "https://steadylink.io",
-  "bugs": {
-    "url": "https://github.com/SteadyLink-io/cli/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+  "repository": { "type": "git", "url": "git+https://github.com/SteadyLink-io/cli.git" },
+  "homepage": "https://steadylink.io/docs/developers/sdks",
+  "bugs": { "url": "https://github.com/SteadyLink-io/cli/issues" },
+  "publishConfig": { "access": "public" }
 }
